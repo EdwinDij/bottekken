@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits, GuildChannelManager } = require('discord.js');
-
+const dbConnect = require('./config/database');
 require('dotenv').config();
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
@@ -26,6 +26,7 @@ for (const folder of commandFolders) {
 
 client.once(Events.ClientReady, () => {
 	console.log('Ready!');
+    dbConnect
 });
 
 
