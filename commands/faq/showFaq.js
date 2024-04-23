@@ -12,7 +12,10 @@ module.exports = {
         console.error(err);
         return;
       }
-
+      if (questionRows.length === 0 || questionRows === undefined || questionRows === null) {
+        interaction.reply("La FAQ est vide.");
+        return;
+      }
       // Créer un message avec la FAQ
       let faqMessage = "";
 
